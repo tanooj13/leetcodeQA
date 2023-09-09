@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/daily-temperatures/description/
+
 /*The main point of the question is to find the day where a higher temperature than the present one and how many days to get that day.
   It is similar to the next greater element question.
            step 1 : create a stack for storing the intermediate result.
