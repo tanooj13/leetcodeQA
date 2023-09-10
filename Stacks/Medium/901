@@ -1,0 +1,32 @@
+//https://leetcode.com/problems/daily-temperatures/description/
+
+/*The main point of the question is to find the day where a higher temperature than the present one and how many days to get that day.
+  It is similar to the next greater element question.
+           step 1 : create a stack for storing the intermediate result.
+           step 2 : now, iterate the list from backsie.
+           step 3 : pop from the stack if the top element is less than the present value.
+                    next,if stack is not empty that means we got temperature greater than present temperaure so store the value.
+                    else stack is empty means no temperature greater than present temperature.
+                    finally,push the present element.
+           step 4 : return the answer */
+
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+         int[] ans = new int[temperatures.length];
+         int l = 0;
+        Stack<Integer> s = new Stack<>();
+        for (int i = temperatures.length-1; i >= 0; i--){
+    
+            while (!s.isEmpty() && temperatures[s.peek()] <= temperatures[i]) s.pop();
+
+            if (s.size() > 0) ans[i] = s.peek()-i;
+            else ans[i] = 0;
+
+            s.push(i);
+    
+        }
+        return ans;
+        
+    }
+}
+  
