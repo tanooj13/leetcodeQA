@@ -1,0 +1,19 @@
+GFG
+class Solution
+{
+    //Function to return the sorted array.
+    ArrayList <Integer> nearlySorted(int nums[], int n, int k)
+    {
+        // your code here
+        ArrayList<Integer> l = new ArrayList<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int num :nums){
+            if (pq.size()>k)l.add(pq.poll());
+            pq.add(num);
+        }
+        while (!pq.isEmpty()){
+            l.add(pq.poll());
+        }
+        return l;
+    }
+}
